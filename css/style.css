@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(to top, hsl(240, 73%, 65%), hsl(273, 75%, 66%));
+  background-size: contain;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Kumbh Sans", sans-serif;
+}
+p {
+  font-size: 12px;
+}
+main {
+  width: 360px;
+  padding: 0px 30px 30px 30px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+main > img {
+  max-width: 100%;
+  position: relative;
+  top: 0;
+  margin-top: 0;
+  transform: translateY(-60%);
+}
+main::before {
+  content: url("../images/bg-pattern-mobile.svg");
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 20%);
+}
+@media (min-width: 991px) {
+  main {
+    width: fit-content;
+    flex-direction: row;
+    padding: 30px;
+    gap: 40px;
+    position: relative;
+  }
+  main > img {
+    width: 350px;
+    transform: translateY(0);
+  }
+  main::before {
+    content: "";
+    background-image: url("../images/bg-pattern-desktop.svg");
+    top: -50%;
+    left: -255px;
+    width: 590px;
+    height: 590px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(0, 0);
+    position: absolute;
+  }
+}
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main h1 {
+  margin-top: -70px;
+  text-align: center;
+}
+@media (min-width: 991px) {
+  main .content h1 {
+    margin: 0 0 30px;
+    text-align: left;
+  }
+  main .content {
+    width: 300px;
+  }
+}
+main .details {
+  width: 100%;
+  margin-bottom: 30px;
+}
+main .box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 2px solid hsl(240, 5%, 91%);
+}
+main .box p {
+  color: hsl(240, 6%, 50%);
+}
+main .box:hover {
+  cursor: pointer;
+}
+main .box:hover p {
+  color: hsl(14, 88%, 65%);
+}
+main .box.active p {
+  font-weight: 700;
+  color: black;
+}
+main .box.active img {
+  transform: rotateZ(180deg);
+}
+main .box span {
+  font-size: 12px;
+  width: 100%;
+  color: hsl(240, 6%, 50%);
+  margin-bottom: 15px;
+}
